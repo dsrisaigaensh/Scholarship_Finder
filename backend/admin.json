@@ -1,0 +1,10 @@
+{
+  "username": "adminuser",
+  "password": "hashedpassword123",
+  "email": "admin@example.com",
+  "fullName": "Admin User",
+  "role": "superadmin",
+  "createdAt": "2024-06-01T12:00:00Z",
+  "updatedAt": "2024-06-10T15:30:00Z",
+  "status": "active"
+} 
