@@ -9,7 +9,13 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PORT
+        value: "4000"
       - key: MONGODB_URI
-        sync: false  # You'll need to set this in Render dashboard
+        value: mongodb+srv://srisaiganeshdhanekula:9885422628@cluster0.hvo00rn.mongodb.net/scholarshipfinder?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: scholarship-finder-jwt-secret-2024-production-key-change-this
+      - key: CORS_ORIGIN
+        value: https://scholarship-finder-app.onrender.com
       - key: VITE_API_URL
         value: https://scholarship-finder-app.onrender.com 
