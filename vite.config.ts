@@ -3,9 +3,13 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      // Add any preprocessor config if needed
-    },
+  base: './',
+  build: {
+    outDir: 'dist',
+    sourcemap: false
   },
+  server: {
+    port: 3000,
+    host: true
+  }
 }); 
