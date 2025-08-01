@@ -90,7 +90,7 @@ app.post('/api/admin/login', async (req, res) => {
   if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
   admin.logins = (admin.logins || 0) + 1;
   await admin.save();
-  const token = jwt.sign({ admin: true, email: admin.email }, 'SECRET_KEY');
+  const token = jwt.sign({ admin: true, email: admin.email }, process.env.JWT_SECRET || 'SECRET_KEY');
   res.json({ token, name: admin.fullName, role: admin.role });
 });
 
@@ -125,7 +125,7 @@ app.post('/api/login', async (req, res) => {
     }
     user.logins = (user.logins || 0) + 1;
     await user.save();
-    const token = jwt.sign({ userId: user._id }, 'SECRET_KEY');
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET || 'SECRET_KEY');
     res.json({ token, name: user.name, userId: user._id });
   } catch (err) {
     console.error('Login error:', err);
