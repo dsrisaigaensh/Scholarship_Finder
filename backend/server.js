@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -292,6 +293,11 @@ app.post('/api/users/role', async (req, res) => {
   }
 });
 
+// Test route to verify backend is working
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Backend is working!' });
+});
+
 // Get all applications for admin panel
 app.get('/api/admin/applications', async (req, res) => {
   try {
@@ -328,6 +334,14 @@ app.get('/api/admin/applications', async (req, res) => {
     console.error('Error fetching applications:', err);
     res.status(500).json({ error: 'Could not fetch applications.' });
   }
+});
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Handle React routing, return all requests to React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
 const PORT = process.env.PORT || 4000;

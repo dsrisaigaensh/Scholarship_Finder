@@ -1,24 +1,15 @@
 services:
-  # Backend API Service
+  # Full Stack Application (Backend + Frontend)
   - type: web
-    name: scholarship-finder-backend
+    name: scholarship-finder-app
     env: node
     plan: free
-    buildCommand: cd backend && npm install
+    buildCommand: npm install && npm run build && cd backend && npm install
     startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: MONGODB_URI
         sync: false  # You'll need to set this in Render dashboard
-
-  # Frontend Static Site
-  - type: web
-    name: scholarship-finder-frontend
-    env: static
-    plan: free
-    buildCommand: npm ci && npm run build
-    staticPublishPath: ./dist
-    envVars:
       - key: VITE_API_URL
-        value: https://scholarship-finder-backend.onrender.com 
+        value: https://scholarship-finder-app.onrender.com 
