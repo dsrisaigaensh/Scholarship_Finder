@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '../hooks/use-toast';
+import { API_ENDPOINTS } from '../config/api';
 
 const Login = ({ onLoginSuccess }: { onLoginSuccess: (name: string) => void }) => {
   const [email, setEmail] = useState('');
@@ -21,8 +22,8 @@ const Login = ({ onLoginSuccess }: { onLoginSuccess: (name: string) => void }) =
     setError('');
     try {
       const endpoint = accountType === 'admin'
-        ? 'http://localhost:4000/api/admin/login'
-        : 'http://localhost:4000/api/login';
+        ? API_ENDPOINTS.ADMIN_LOGIN
+        : API_ENDPOINTS.LOGIN;
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

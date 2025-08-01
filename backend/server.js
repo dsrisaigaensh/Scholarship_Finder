@@ -7,7 +7,8 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/scholarshipfinder', {
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/scholarshipfinder';
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -329,4 +330,5 @@ app.get('/api/admin/applications', async (req, res) => {
   }
 });
 
-app.listen(4000, () => console.log('Backend running on http://localhost:4000'));
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));

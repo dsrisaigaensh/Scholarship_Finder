@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 
 const Admin: React.FC = () => {
   const [users, setUsers] = useState<any[]>([]);
@@ -22,7 +23,7 @@ const Admin: React.FC = () => {
       return;
     }
     console.log('Fetching users from /api/users...');
-    fetch('http://localhost:4000/api/users')
+    fetch(API_ENDPOINTS.USERS)
       .then(res => res.json())
       .then(data => {
         setUsers(data);
@@ -36,7 +37,7 @@ const Admin: React.FC = () => {
       return;
     }
     console.log('Fetching applications from /api/admin/applications...');
-    fetch('http://localhost:4000/api/admin/applications')
+    fetch(API_ENDPOINTS.ADMIN_APPLICATIONS)
       .then(res => res.json())
       .then(data => {
         setApplications(data);
@@ -66,7 +67,7 @@ const Admin: React.FC = () => {
 
   // Actions
   const updateStatus = async (id: string, status: string, role: string) => {
-    await fetch('http://localhost:4000/api/users/status', {
+    await fetch(API_ENDPOINTS.USER_STATUS, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id, status, role })
@@ -74,11 +75,11 @@ const Admin: React.FC = () => {
     setUsers(users => users.map(u => u.id === id ? { ...u, status } : u));
   };
   const deleteUser = async (id: string, role: string) => {
-    await fetch(`http://localhost:4000/api/users/${id}?role=${role}`, { method: 'DELETE' });
+    await fetch(API_ENDPOINTS.DELETE_USER(id, role), { method: 'DELETE' });
     setUsers(users => users.filter(u => u.id !== id));
   };
   const promoteUser = async (id: string, newRole: string) => {
-    await fetch('http://localhost:4000/api/users/role', {
+    await fetch(API_ENDPOINTS.USER_ROLE, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id, newRole })

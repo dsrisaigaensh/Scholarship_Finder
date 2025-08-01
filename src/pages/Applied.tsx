@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { mockScholarships } from '../data/scholarships';
 import { useToast } from '../hooks/use-toast';
+import { API_ENDPOINTS } from '../config/api';
 
 const Applied = () => {
   const [applied, setApplied] = useState<typeof mockScholarships>([]);
@@ -17,7 +18,7 @@ const Applied = () => {
       return;
     }
     setLoading(true);
-    fetch(`http://localhost:4000/api/applied?userId=${userId}`)
+    fetch(`${API_ENDPOINTS.APPLIED}?userId=${userId}`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch applied scholarships');
         return res.json();
@@ -39,7 +40,7 @@ const Applied = () => {
   // Optionally, implement cancel logic with backend if needed
   const handleCancel = (scholarshipTitle: string) => {
     const userId = localStorage.getItem('userId');
-    fetch('http://localhost:4000/api/applied', {
+    fetch(API_ENDPOINTS.APPLIED, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ userId, scholarship: scholarshipTitle }),

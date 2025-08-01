@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { mockScholarships } from '../data/scholarships'; // Import from new location
 import { useToast } from '../hooks/use-toast';
+import { API_ENDPOINTS } from '../config/api';
 
 const stats = [
   { icon: '📚', label: 'Total Scholarships', value: '1,250', description: 'MongoDB Database' },
@@ -131,7 +132,7 @@ const Dashboard = () => {
     
     // Send to backend
     try {
-      const res = await fetch('http://localhost:4000/api/apply', {
+      const res = await fetch(API_ENDPOINTS.APPLY, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestBody)
