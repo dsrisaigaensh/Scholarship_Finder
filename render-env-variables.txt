@@ -1,0 +1,21 @@
+# ========================================
+# COPY-PASTE FOR RENDER DEPLOYMENT
+# ========================================
+
+# BACKEND SERVICE - Paste this in backend service environment variables:
+NODE_ENV=production
+PORT=4000
+MONGODB_URI=mongodb+srv://scholarship-admin:YOUR_PASSWORD@cluster0.abc123.mongodb.net/scholarshipfinder?retryWrites=true&w=majority
+JWT_SECRET=scholarship-finder-jwt-secret-2024-production-key
+CORS_ORIGIN=https://scholarship-finder-frontend.onrender.com
+
+# FRONTEND SERVICE - Paste this in frontend service environment variables:
+VITE_API_URL=https://scholarship-finder-backend.onrender.com
+
+# ========================================
+# INSTRUCTIONS:
+# ========================================
+# 1. Replace YOUR_PASSWORD with your MongoDB Atlas password
+# 2. Replace cluster0.abc123 with your actual cluster name
+# 3. After deployment, update URLs with your actual Render URLs
+# ======================================== 
