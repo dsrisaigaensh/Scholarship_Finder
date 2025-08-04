@@ -10,10 +10,7 @@ app.use(express.json());
 
 // Connect to MongoDB
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/scholarshipfinder';
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
+mongoose.connect(MONGODB_URI).then(() => {
   console.log('✅ MongoDB connected successfully');
 }).catch((err) => {
   console.error('❌ MongoDB connection error:', err);
@@ -345,7 +342,7 @@ app.get('/api/admin/applications', async (req, res) => {
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // Handle React routing, return all requests to React app
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
