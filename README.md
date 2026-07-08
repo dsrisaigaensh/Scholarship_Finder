@@ -79,7 +79,7 @@ The landing page introduces the Scholarship Finder platform, allowing students t
 The Features page provides a complete overview of the system modules, including Authentication, Scholarship Management, Search & Filter Engine, and Application Tracking.
 
 <p align="center">
-<img src="./screenshots/features.png" width="900">
+<img src="features.png" width="900">
 </p>
 
 ---
