@@ -1,188 +1,372 @@
-# Scholarship Finder
+# 🎓 Scholarship Finder
 
-A full-stack web application for finding and applying to scholarships. Built with React (frontend) and Node.js/Express (backend).
+A full-stack web application that helps students discover, filter, and apply for scholarships through a simple and user-friendly interface. The platform also provides an admin dashboard to manage scholarships, users, and applications efficiently.
 
-## Features
+---
 
-- **User Authentication**: Student and admin login/signup
-- **Scholarship Search**: Advanced filtering by category, income, academic level, and gender
-- **Application Management**: Track applied scholarships and manage applications
-- **Admin Panel**: User management and application oversight
-- **Responsive Design**: Modern UI with Tailwind CSS
+## 🚀 Features
 
-## Tech Stack
+### 👤 User Authentication
+- Secure Student and Admin Login/Signup
+- JWT Authentication
+- Password Hashing using bcryptjs
+- Role-based Access Control
 
-### Frontend
-- React 18 with TypeScript
-- Vite for build tooling
-- Tailwind CSS for styling
-- React Router for navigation
+### 🎓 Scholarship Search
+- Search scholarships using keywords
+- Advanced filtering by:
+  - Category
+  - Income Range
+  - Academic Level
+  - Gender
+- View scholarship details
+- Apply directly from the dashboard
 
-### Backend
-- Node.js with Express
-- MongoDB with Mongoose
-- JWT for authentication
-- bcryptjs for password hashing
+### 📄 Application Management
+- Track applied scholarships
+- View application status
+- Manage scholarship applications
 
-## Deployment to Render
+### 👨‍💼 Admin Panel
+- Manage Users
+- Manage Scholarships
+- View Student Applications
+- Activate/Deactivate Users
+- Promote/Demote Admins
 
-This project is configured for deployment on Render with the following services:
+### 📱 Responsive Design
+- Modern UI built with Tailwind CSS
+- Mobile Friendly
+- Fast and Responsive Interface
 
-### 1. Backend Service (Web Service)
+---
 
-**Configuration:**
-- **Environment**: Node.js
-- **Build Command**: `cd backend && npm install`
-- **Start Command**: `cd backend && npm start`
-- **Plan**: Free
+# 🛠 Tech Stack
 
-**Environment Variables:**
-- `NODE_ENV`: `production`
-- `MONGODB_URI`: Your MongoDB connection string (set in Render dashboard)
-- `PORT`: Automatically set by Render
+## Frontend
 
-### 2. Frontend Service (Static Site)
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router DOM
 
-**Configuration:**
-- **Environment**: Static Site
-- **Build Command**: `npm install && npm run build`
-- **Publish Directory**: `./dist`
-- **Plan**: Free
+## Backend
 
-**Environment Variables:**
-- `VITE_API_URL`: URL of your backend service (e.g., `https://your-backend-name.onrender.com`)
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- bcryptjs
 
-## Deployment Steps
+---
 
-### Step 1: Prepare Your Repository
+# 📸 Application Screenshots
 
-1. Ensure your code is pushed to a Git repository (GitHub, GitLab, etc.)
-2. Make sure all the configuration files are in place:
-   - `render.yaml` (deployment configuration)
-   - `backend/package.json` (with start script)
-   - `frontend/package.json` (with build script)
+## 🏠 Home Page
 
-### Step 2: Set Up MongoDB
+The landing page introduces the Scholarship Finder platform, allowing students to easily explore available scholarships and access the login or registration pages.
 
-1. Create a MongoDB database (MongoDB Atlas recommended for production)
-2. Get your MongoDB connection string
-3. Note: You'll need to set this as an environment variable in Render
+<p align="center">
+<img src="./screenshots/home.png" width="900">
+</p>
 
-### Step 3: Deploy on Render
+---
 
-1. **Sign up/Login to Render**
-   - Go to [render.com](https://render.com)
-   - Sign up or log in to your account
+## ✨ Features Page
 
-2. **Connect Your Repository**
-   - Click "New +" and select "Blueprint"
-   - Connect your Git repository
-   - Render will automatically detect the `render.yaml` file
+The Features page provides a complete overview of the system modules, including Authentication, Scholarship Management, Search & Filter Engine, and Application Tracking.
 
-3. **Configure Environment Variables**
-   - In the backend service settings, add:
-     - `MONGODB_URI`: Your MongoDB connection string
-     - `NODE_ENV`: `production`
+<p align="center">
+<img src="./screenshots/features.png" width="900">
+</p>
 
-4. **Update Frontend API URL**
-   - Once your backend is deployed, copy its URL
-   - In the frontend service settings, set:
-     - `VITE_API_URL`: Your backend service URL
+---
 
-### Step 4: Verify Deployment
+## 🎓 Student Dashboard
 
-1. **Backend Health Check**
-   - Visit your backend URL + `/api/users` (should return JSON or error)
-   - Check Render logs for any startup issues
+Students can browse scholarships, filter them based on eligibility criteria, search by keywords, and apply directly through the dashboard.
 
-2. **Frontend Verification**
-   - Visit your frontend URL
-   - Test the application functionality
-   - Check browser console for API connection errors
+### Dashboard Features
 
-## Local Development
+- Advanced Search & Filters
+- Scholarship Listings
+- Application Tracking
+- User Dashboard Statistics
 
-### Prerequisites
+<p align="center">
+<img src="./screenshots/dashboard.png" width="900">
+</p>
+
+---
+
+## 👨‍💼 Admin Dashboard
+
+The Admin Panel provides complete control over the application. Administrators can manage users, monitor scholarship applications, and maintain the platform.
+
+### Admin Features
+
+- User Management
+- Scholarship Management
+- Application Monitoring
+- Search Users
+- Activate/Deactivate Accounts
+- Promote/Demote Users
+
+<p align="center">
+<img src="./screenshots/admin-panel.png" width="900">
+</p>
+
+---
+
+# 📂 Project Structure
+
+```
+scholar/
+│
+├── backend/
+│   ├── server.js
+│   ├── package.json
+│   └── ...
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── hooks/
+│   ├── config/
+│   └── main.tsx
+│
+├── screenshots/
+│   ├── home.png
+│   ├── features.png
+│   ├── dashboard.png
+│   └── admin-panel.png
+│
+├── render.yaml
+├── package.json
+└── README.md
+```
+
+---
+
+# 🚀 Deployment (Render)
+
+This project is configured for deployment on **Render**.
+
+## Backend Service
+
+### Configuration
+
+- Environment: Node.js
+- Build Command
+
+```
+cd backend && npm install
+```
+
+- Start Command
+
+```
+cd backend && npm start
+```
+
+### Environment Variables
+
+```
+NODE_ENV=production
+
+MONGODB_URI=Your MongoDB Atlas Connection String
+
+PORT=Automatically Set by Render
+```
+
+---
+
+## Frontend Service
+
+### Configuration
+
+- Environment: Static Site
+
+Build Command
+
+```
+npm install && npm run build
+```
+
+Publish Directory
+
+```
+dist
+```
+
+### Environment Variable
+
+```
+VITE_API_URL=https://your-backend.onrender.com
+```
+
+---
+
+# 📦 Deployment Steps
+
+## Step 1
+
+Push your project to GitHub.
+
+---
+
+## Step 2
+
+Create a MongoDB Atlas Cluster and copy the connection string.
+
+---
+
+## Step 3
+
+Login to Render.
+
+- Click **New**
+- Select **Blueprint**
+- Connect your GitHub Repository
+
+---
+
+## Step 4
+
+Set Environment Variables.
+
+Backend
+
+```
+NODE_ENV=production
+
+MONGODB_URI=Your MongoDB Connection String
+```
+
+Frontend
+
+```
+VITE_API_URL=Backend URL
+```
+
+---
+
+## Step 5
+
+Deploy the project.
+
+After deployment,
+
+- Visit the frontend URL
+- Test Login
+- Test Signup
+- Search Scholarships
+- Apply for Scholarships
+- Verify Admin Dashboard
+
+---
+
+# 💻 Local Development
+
+## Prerequisites
+
 - Node.js 16+
-- MongoDB (local or Atlas)
+- MongoDB
 
-### Backend Setup
-```bash
+---
+
+## Backend
+
+```
 cd backend
+
 npm install
+
 npm run dev
 ```
 
-### Frontend Setup
-```bash
+---
+
+## Frontend
+
+```
 npm install
+
 npm run dev
 ```
 
-### Environment Variables (Local)
-Create `.env` files in respective directories:
+---
 
-**Backend (.env):**
+## Backend (.env)
+
 ```
 MONGODB_URI=mongodb://localhost:27017/scholarshipfinder
+
 PORT=4000
 ```
 
-**Frontend (.env):**
+---
+
+## Frontend (.env)
+
 ```
 VITE_API_URL=http://localhost:4000
 ```
 
-## Project Structure
+---
 
-```
-scholar/
-├── backend/                 # Node.js/Express backend
-│   ├── server.js           # Main server file
-│   └── package.json        # Backend dependencies
-├── src/                    # React frontend
-│   ├── components/         # React components
-│   ├── pages/             # Page components
-│   ├── hooks/             # Custom React hooks
-│   ├── config/            # Configuration files
-│   └── main.tsx           # App entry point
-├── render.yaml            # Render deployment config
-└── README.md              # This file
-```
+# ⚠ Troubleshooting
 
-## Troubleshooting
+## Backend Doesn't Start
 
-### Common Issues
+- Verify MongoDB connection string
+- Check environment variables
+- Review Render logs
 
-1. **Backend Won't Start**
-   - Check MongoDB connection string
-   - Verify all environment variables are set
-   - Check Render logs for detailed error messages
+---
 
-2. **Frontend Can't Connect to Backend**
-   - Verify `VITE_API_URL` is set correctly
-   - Ensure backend service is running
-   - Check CORS configuration
+## Frontend Cannot Connect
 
-3. **Build Failures**
-   - Check Node.js version compatibility
-   - Verify all dependencies are in package.json
-   - Review build logs for specific errors
+- Verify VITE_API_URL
+- Ensure backend is running
+- Check CORS settings
 
-### Render-Specific Tips
+---
 
-- **Free Tier Limitations**: Free services sleep after 15 minutes of inactivity
-- **Build Time**: First build may take 5-10 minutes
-- **Environment Variables**: Must be set before deployment
-- **Custom Domains**: Available on paid plans
+## Build Errors
 
-## Support
+- Verify Node.js version
+- Install dependencies
+- Review build logs
 
-For deployment issues:
-1. Check Render documentation: [docs.render.com](https://docs.render.com)
-2. Review application logs in Render dashboard
-3. Verify environment variables are correctly set
+---
 
-## License
+# 💡 Render Tips
 
-This project is open source and available under the [MIT License](LICENSE). 
+- Free services sleep after 15 minutes of inactivity.
+- First deployment may take 5–10 minutes.
+- Environment variables must be configured before deployment.
+- Custom domains are available on paid plans.
+
+---
+
+# 🤝 Support
+
+If you encounter deployment issues:
+
+- Review Render Logs
+- Verify MongoDB Connection
+- Check Environment Variables
+- Refer to Render Documentation
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+# ⭐ If you like this project, don't forget to give it a Star!
