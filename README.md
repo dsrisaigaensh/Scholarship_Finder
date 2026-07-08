@@ -69,7 +69,7 @@ A full-stack web application that helps students discover, filter, and apply for
 The landing page introduces the Scholarship Finder platform, allowing students to easily explore available scholarships and access the login or registration pages.
 
 <p align="center">
-<img src="./screenshots/home.png" width="900">
+<img src="home.png" width="900">
 </p>
 
 ---
@@ -96,7 +96,7 @@ Students can browse scholarships, filter them based on eligibility criteria, sea
 - User Dashboard Statistics
 
 <p align="center">
-<img src="./screenshots/dashboard.png" width="900">
+<img src="dashboard.png" width="900">
 </p>
 
 ---
@@ -115,7 +115,7 @@ The Admin Panel provides complete control over the application. Administrators c
 - Promote/Demote Users
 
 <p align="center">
-<img src="./screenshots/admin-panel.png" width="900">
+<img src="admin-panel.png" width="900">
 </p>
 
 ---
